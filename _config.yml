@@ -117,8 +117,8 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: # amwps290/discussion
-    repo_id:
-    category:
+    repo_id: 832477066
+    category: blog
     category_id:
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
