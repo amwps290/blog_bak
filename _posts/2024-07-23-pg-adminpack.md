@@ -43,7 +43,7 @@ LANGUAGE C VOLATILE;
 
 现在我们来看一下 C 函数 `pg_file_rename_v1_1`
 
-```CPP
+```c
 Datum
 pg_file_rename_v1_1(PG_FUNCTION_ARGS)
 {
@@ -71,7 +71,7 @@ pg_file_rename_v1_1(PG_FUNCTION_ARGS)
 
 这个代码中仅仅是判断参数是否为空，如果不为空，则获取参数，然后调用  `pg_file_rename_internal` 这个函数
 
-```CPP
+```c
 static bool
 pg_file_rename_internal(text *file1, text *file2, text *file3)
 {
@@ -187,7 +187,7 @@ LANGUAGE C VOLATILE STRICT;
 
 
 
-{% highlight c %}
+```c
 #include <stdint.h>
 Datum
 pg_file_sync(PG_FUNCTION_ARGS)
@@ -206,8 +206,7 @@ pg_file_sync(PG_FUNCTION_ARGS)
 
 	PG_RETURN_VOID();
 }
-{% endhighlight %}
-
+```
 
 可以看到这个仅仅是将 text 类型的数据转换为 char * 类型的数据。然后调用 storage 的函数实现的功能。(src/backend/storage/file/fd.c)
 
@@ -223,7 +222,7 @@ LANGUAGE C VOLATILE STRICT;
 ```
 发现它调用了 C 函数 `pg_file_unlink_v1_1`. 我们来看一下这个函数：
 
-```CPP
+```c
 Datum
 pg_file_unlink_v1_1(PG_FUNCTION_ARGS)
 {
@@ -268,7 +267,7 @@ LANGUAGE C VOLATILE STRICT;
 
 发现它调用的是 C 函数 `pg_file_write_v1_1`
 
-```CPP
+```c
 Datum
 pg_file_write_v1_1(PG_FUNCTION_ARGS)
 {
@@ -343,7 +342,7 @@ LANGUAGE C VOLATILE STRICT;
 
 这里它调用了 C 函数 `pg_logidr_ls_v1_1`,我们看一下这个 C 函数：
 
-```CPP
+```c
 Datum
 pg_logdir_ls_v1_1(PG_FUNCTION_ARGS)
 {
@@ -454,7 +453,7 @@ pg_logdir_ls_internal(FunctionCallInfo fcinfo)
 
 首先我们看到了它从 `fcinfo` 中获取了一个 `resultinfo` 的字段，然后将其转换为 `ReturnSetInfo` 这个结构体指针。我们来看一下这个结构体
 
-```CPP
+```c
 /*
  * When calling a function that might return a set (multiple rows),
  * a node of this type is passed as fcinfo->resultinfo to allow
@@ -501,7 +500,7 @@ typedef struct ReturnSetInfo
 
 接下来，我们遍历目录中的文件，查看文件的名字是否满足 `postgresql-` 这种形式，然后将文件名中包含的日期信息提取出来，然后将其变成好看的日期格式，最后我们将日期和文件名写入到一个 tuple 里
 
-```CPP
+```c
 values[0] = timestampbuf;
 values[1] = psprintf("%s/%s", Log_directory, de->d_name);
 tuple = BuildTupleFromCStrings(attinmeta, values);
