@@ -187,7 +187,7 @@ LANGUAGE C VOLATILE STRICT;
 
 
 
-```C
+{% highlight c %}
 #include <stdint.h>
 Datum
 pg_file_sync(PG_FUNCTION_ARGS)
@@ -206,7 +206,7 @@ pg_file_sync(PG_FUNCTION_ARGS)
 
 	PG_RETURN_VOID();
 }
-```
+{% endhighlight %}
 
 
 可以看到这个仅仅是将 text 类型的数据转换为 char * 类型的数据。然后调用 storage 的函数实现的功能。(src/backend/storage/file/fd.c)
