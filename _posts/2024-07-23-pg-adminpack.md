@@ -176,7 +176,7 @@ pg_file_rename_internal(text *file1, text *file2, text *file3)
 
 我们先来看一下 SQL 代码：
 
-```SQL
+```sql
 CREATE OR REPLACE FUNCTION pg_catalog.pg_file_sync(text)
 RETURNS void
 AS 'MODULE_PATHNAME', 'pg_file_sync'
@@ -188,7 +188,6 @@ LANGUAGE C VOLATILE STRICT;
 
 
 ```c
-#include <stdint.h>
 Datum
 pg_file_sync(PG_FUNCTION_ARGS)
 {
@@ -214,7 +213,7 @@ pg_file_sync(PG_FUNCTION_ARGS)
 
 我们先来看一下 SQL 代码：
 
-```SQL
+```sql
 CREATE OR REPLACE FUNCTION pg_catalog.pg_file_unlink(text)
 RETURNS bool
 AS 'MODULE_PATHNAME', 'pg_file_unlink_v1_1'
@@ -258,7 +257,7 @@ pg_file_unlink_v1_1(PG_FUNCTION_ARGS)
 看一下 SQL 代码：
 
 
-```SQL
+```sql
 CREATE OR REPLACE FUNCTION pg_catalog.pg_file_write(text, text, bool)
 RETURNS bigint
 AS 'MODULE_PATHNAME', 'pg_file_write_v1_1'
@@ -333,7 +332,7 @@ pg_file_write_internal(text *file, text *data, bool replace)
 
 我们看一下 SQL 代码：
 
-```SQL
+```sql
 CREATE OR REPLACE FUNCTION pg_catalog.pg_logdir_ls()
 RETURNS setof record
 AS 'MODULE_PATHNAME', 'pg_logdir_ls_v1_1'
