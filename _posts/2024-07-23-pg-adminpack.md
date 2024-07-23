@@ -1,8 +1,8 @@
 ---
 title: PostgreSQL adminpack 插件源码分析
 author: amwps290
-date: 2024-07-23 14:10:00 +0800
-categories: [数据库,源码分析]
+date: 2024-07-23 00:10:00 +0800
+categories: [数据库,源码分析,PostgreSQL]
 tags: [database,postgresql]
 render_with_liquid: false
 ---
