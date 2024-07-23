@@ -185,6 +185,14 @@ LANGUAGE C VOLATILE STRICT;
 
 可以看到他调用的是 C 函数 `pg_file_sync` ,我们来看一下这个 C 代码：
 
+
+```c
+#include <stdio.h>
+int main(){
+	printf("Hello World");
+}
+```
+
 ```CPP
 Datum
 pg_file_sync(PG_FUNCTION_ARGS)
