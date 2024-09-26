@@ -164,6 +164,7 @@ kramdown:
     block:
       line_numbers: true
       start_line: 1
+      highlight_lines: true
 
 collections:
   tabs:
