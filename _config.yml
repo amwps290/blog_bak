@@ -18,6 +18,8 @@ title: AMWPS290 Blog
 
 tagline:  database
 
+permalink: /:categories/:year/:month/:day/:title/
+
 description: >- # used by seo meta and the atom feed
 
 # Fill in the protocol & hostname for your site.
